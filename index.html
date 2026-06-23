@@ -1,0 +1,452 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta
+      name="description"
+      content="Project page for Agentic Collaborative Cognition for Zero-Shot 3D Understanding."
+    >
+    <title>Agentic Collaborative Cognition for Zero-Shot 3D Understanding</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <header class="site-header">
+      <nav class="site-nav" aria-label="Primary navigation">
+        <a class="brand" href="#top">Agentic 3D</a>
+        <div class="nav-links">
+          <a href="#abstract">Abstract</a>
+          <a href="#method">Method</a>
+          <a href="#results">Results</a>
+          <a href="#bibtex">BibTeX</a>
+        </div>
+      </nav>
+    </header>
+
+    <main id="top">
+      <section class="hero title-hero">
+        <div class="hero-inner">
+          <div class="hero-copy">
+            <p class="venue">ECCV 2026</p>
+            <h1 class="publication-title">Agentic Collaborative Cognition</h1>
+            <p class="paper-full-title">for Zero-Shot 3D Understanding</p>
+            <div class="authors" aria-label="Authors">
+              <div class="author-row">
+                <a href="https://github.com/WWX-2002" target="_blank" rel="noreferrer">Wenxin Wang<sup>1,*</sup></a>
+                <a href="https://github.com/ZhangBo135" target="_blank" rel="noreferrer">Bo Zhang<sup>1,*</sup></a>
+                <a href="https://chenfeng1271.github.io/" target="_blank" rel="noreferrer">Feng Chen<sup>2,*</sup></a>
+                <a href="https://www.researchgate.net/profile/Zixuan-Wang-109" target="_blank" rel="noreferrer">Zixuan Wang<sup>1,&dagger;</sup></a>
+              </div>
+              <div class="author-row">
+                <a href="https://wenli-vision.github.io/" target="_blank" rel="noreferrer">Wen Li<sup>3</sup></a>
+                <a href="https://scholar.google.com/citations?user=FfJnUioAAAAJ&amp;hl=en" target="_blank" rel="noreferrer">Changsheng Li<sup>4</sup></a>
+                <a href="https://www.semanticscholar.org/author/Yinjie-Lei/46359335" target="_blank" rel="noreferrer">Yinjie Lei<sup>1,&Dagger;</sup></a>
+              </div>
+            </div>
+            <div class="institutions">
+              <span><sup>1</sup>Sichuan University</span>
+              <span><sup>2</sup>Adelaide University</span>
+              <span><sup>3</sup>University of Electronic Science and Technology of China</span>
+              <span><sup>4</sup>Beijing Institute of Technology</span>
+            </div>
+            <div class="author-notes">
+              <span><sup>*</sup>Equal contribution</span>
+              <span><sup>&dagger;</sup>Project lead</span>
+              <span><sup>&Dagger;</sup>Corresponding author</span>
+            </div>
+
+            <div class="actions" aria-label="Project resources">
+              <a class="button primary" href="assets/paper.pdf">Paper</a>
+              <a class="button secondary" href="#" aria-disabled="true">arXiv</a>
+              <a class="button secondary" href="#" aria-disabled="true">Supplementary</a>
+              <a class="button secondary" href="#" aria-disabled="true">Code</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="teaser-section" aria-labelledby="teaser-title">
+        <div class="content content-figure">
+          <h2 id="teaser-title">Collaborative Planning and Perception for 3D Scenes</h2>
+          <figure class="paper-figure teaser-figure">
+            <div class="figure-scroll">
+              <img
+                src="assets/teaser.png"
+                alt="Comparison between existing zero-shot 3D understanding methods and the proposed collaborative planning and perception framework."
+              >
+            </div>
+            <figcaption>
+              <strong>Figure 1.</strong> Existing zero-shot 3D understanding methods rely on finite
+              viewpoints, while the proposed framework actively plans query-relevant views and
+              integrates observations through collaborative agents.
+            </figcaption>
+          </figure>
+        </div>
+      </section>
+
+      <section id="abstract" class="section">
+        <div class="content content-reading">
+          <div class="section-kicker">Abstract</div>
+          <h2>Agentic Zero-Shot 3D Understanding</h2>
+          <div class="abstract-copy">
+            <p>
+              Recent advancements have explored agentic zero-shot 3D understanding by
+              reformulating it as video keyframe understanding with Multimodal Large
+              Language Models (MLLMs). However, existing methods face an intrinsic
+              bottleneck due to the finite observation perspectives inherent in videos and
+              the implicit perception of 3D scenes. In this paper, we propose a
+              collaborative multi-agent framework that assigns a Planning Agent to handle
+              high-level viewpoint planning and supplement novel perspectives, and a
+              Perception Agent to explicitly summarize the 3D scene into a structured
+              holistic cognitive map. Specifically, Planning Agent first analyzes this
+              cognitive map to determine query-relevant viewpoints and supplements missing
+              critical perspectives to ensure comprehensive observation. Subsequently,
+              Perception Agent documents object-level attributes from these views by
+              assigning consistent instance identifiers across viewpoints, thereby
+              integrating fragmented observations into the holistic cognitive map. In
+              parallel, it provides feedback to filter out mismatched candidate objects and
+              guide subsequent viewpoint planning. Through this closed-loop iterative
+              process, two agents collaboratively figure out candidates until Perception
+              Agent determines that sufficient information has been captured to complete
+              the task. Extensive experiments demonstrate that our method achieves
+              state-of-the-art performance on 6 benchmarks, with improvements of 11.1%
+              Acc@0.5 on ScanRefer, 14.6 BLEU-1 on 3D-assisted dialog, and 2.1 EM on
+              SQA3D.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section id="method" class="section section-alt">
+        <div class="content content-wide">
+          <div class="section-kicker">Method</div>
+          <h2>Collaborative Multi-Agent Framework</h2>
+          <figure class="paper-figure detail-frame">
+            <div class="figure-scroll">
+              <img
+                src="assets/method-overview.png"
+                alt="Overview of the proposed Planning Agent and Perception Agent collaboration framework."
+              >
+            </div>
+            <figcaption>
+              <strong>Figure 2.</strong> The Planning Agent selects informative viewpoints,
+              while the Perception Agent consolidates object-level evidence and returns feedback
+              for subsequent planning and final reasoning.
+            </figcaption>
+          </figure>
+        </div>
+      </section>
+
+      <section id="results" class="section">
+        <div class="content content-wide">
+          <div class="section-kicker">Experiments</div>
+          <h2>Results</h2>
+
+          <div class="benchmark-summary" aria-label="Main benchmark improvements">
+            <article>
+              <h3>3D Visual Grounding</h3>
+              <dl>
+                <div>
+                  <dt>ScanRefer Acc@0.5</dt>
+                  <dd>+11.1</dd>
+                </div>
+              </dl>
+            </article>
+            <article>
+              <h3>3D Question Answering</h3>
+              <dl>
+                <div>
+                  <dt>SQA3D EM</dt>
+                  <dd>+2.1</dd>
+                </div>
+              </dl>
+            </article>
+            <article>
+              <h3>3D-Assisted Dialog</h3>
+              <dl>
+                <div>
+                  <dt>Dialog BLEU-1</dt>
+                  <dd>+14.6</dd>
+                </div>
+              </dl>
+            </article>
+          </div>
+
+          <div class="table-results" aria-label="Main benchmark result tables">
+            <article class="result-table-block">
+              <h3>3D Visual Grounding</h3>
+              <div class="table-scroll">
+                <table class="result-table result-table-vg">
+                  <thead>
+                    <tr>
+                      <th>Setting</th>
+                      <th>Method</th>
+                      <th>ScanRefer Acc@0.25</th>
+                      <th>ScanRefer Acc@0.5</th>
+                      <th>Nr3D Acc@0.25</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr class="group-row">
+                      <td colspan="5">Zero-shot, 250 queries</td>
+                    </tr>
+                    <tr>
+                      <td>250 queries</td>
+                      <td>VLM-Grounder</td>
+                      <td>51.6</td>
+                      <td>32.8</td>
+                      <td>48.0</td>
+                    </tr>
+                    <tr>
+                      <td>250 queries</td>
+                      <td>SeqVLM</td>
+                      <td>55.6</td>
+                      <td>49.6</td>
+                      <td>53.2</td>
+                    </tr>
+                    <tr>
+                      <td>250 queries</td>
+                      <td>SPAZER</td>
+                      <td>57.2</td>
+                      <td>48.8</td>
+                      <td>63.8</td>
+                    </tr>
+                    <tr class="ours-row">
+                      <td>250 queries</td>
+                      <td>Ours</td>
+                      <td>58.0</td>
+                      <td>50.0</td>
+                      <td>65.6</td>
+                    </tr>
+                    <tr class="group-row">
+                      <td colspan="5">Zero-shot, full validation set</td>
+                    </tr>
+                    <tr>
+                      <td>Full</td>
+                      <td>ZSVG3D</td>
+                      <td>36.4</td>
+                      <td>32.7</td>
+                      <td>39.0</td>
+                    </tr>
+                    <tr>
+                      <td>Full</td>
+                      <td>SeeGround</td>
+                      <td>44.1</td>
+                      <td>39.4</td>
+                      <td>46.1</td>
+                    </tr>
+                    <tr>
+                      <td>Full</td>
+                      <td>CSVG</td>
+                      <td>49.6</td>
+                      <td>39.8</td>
+                      <td>59.2</td>
+                    </tr>
+                    <tr class="ours-row">
+                      <td>Full</td>
+                      <td>Ours</td>
+                      <td>58.1</td>
+                      <td>50.9</td>
+                      <td>61.2</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <p class="table-note">
+                The full-set comparison tests whether active viewpoint planning transfers beyond
+                the 250-query protocol. Ours raises ScanRefer Overall Acc@0.5 from 39.8 to 50.9
+                while also improving Nr3D Overall Acc@0.25 from 59.2 to 61.2.
+              </p>
+            </article>
+
+            <article class="result-table-block">
+              <h3>3D Question Answering</h3>
+              <div class="table-scroll">
+                <table class="result-table">
+                  <thead>
+                    <tr>
+                      <th>Method</th>
+                      <th>SQA3D Overall</th>
+                      <th>ScanQA CIDEr</th>
+                      <th>ScanQA BLEU-4</th>
+                      <th>ScanQA METEOR</th>
+                      <th>ScanQA ROUGE</th>
+                      <th>ScanQA EM</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>Agent3D-Zero</td>
+                      <td>-</td>
+                      <td>71.8</td>
+                      <td>4.4</td>
+                      <td>16.0</td>
+                      <td>37.0</td>
+                      <td>17.5</td>
+                    </tr>
+                    <tr>
+                      <td>SpatialPrompting</td>
+                      <td>52.7</td>
+                      <td>87.7</td>
+                      <td>10.9</td>
+                      <td>16.9</td>
+                      <td>43.4</td>
+                      <td>27.3</td>
+                    </tr>
+                    <tr class="ours-row">
+                      <td>Ours</td>
+                      <td>54.8</td>
+                      <td>91.1</td>
+                      <td>12.3</td>
+                      <td>17.4</td>
+                      <td>44.5</td>
+                      <td>28.7</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <p class="table-note">
+                SpatialPrompting already uses object-centric visual prompts; Ours adds explicit
+                scene cognition, improving SQA3D Overall from 52.7 to 54.8 and ScanQA CIDEr
+                from 87.7 to 91.1.
+              </p>
+            </article>
+
+            <article class="result-table-block">
+              <h3>3D-Assisted Dialog</h3>
+              <div class="table-scroll">
+                <table class="result-table">
+                  <thead>
+                    <tr>
+                      <th rowspan="2">Method</th>
+                      <th colspan="4">3D-assisted Dialog</th>
+                      <th colspan="4">Task Decomposition</th>
+                    </tr>
+                    <tr>
+                      <th>B-1</th>
+                      <th>B-4</th>
+                      <th>M</th>
+                      <th>R</th>
+                      <th>B-1</th>
+                      <th>B-4</th>
+                      <th>M</th>
+                      <th>R</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>3D-LLM</td>
+                      <td>39.0</td>
+                      <td>16.6</td>
+                      <td>18.9</td>
+                      <td>39.3</td>
+                      <td>33.9</td>
+                      <td>7.4</td>
+                      <td>15.9</td>
+                      <td>37.8</td>
+                    </tr>
+                    <tr>
+                      <td>Agent3D-Zero</td>
+                      <td>32.8</td>
+                      <td>9.8</td>
+                      <td>19.3</td>
+                      <td>39.3</td>
+                      <td>42.0</td>
+                      <td>15.5</td>
+                      <td>22.9</td>
+                      <td>45.1</td>
+                    </tr>
+                    <tr class="ours-row">
+                      <td>Ours</td>
+                      <td>47.4</td>
+                      <td>24.0</td>
+                      <td>28.6</td>
+                      <td>47.3</td>
+                      <td>43.8</td>
+                      <td>24.9</td>
+                      <td>21.0</td>
+                      <td>48.8</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <p class="table-note">
+                On held-in 3D dialog, Ours surpasses Agent3D-Zero without task-specific
+                supervision, lifting dialog B-1 from 32.8 to 47.4 and B-4 from 9.8 to 24.0.
+              </p>
+            </article>
+          </div>
+
+          <figure class="paper-figure result-figure">
+            <div class="qualitative-grid">
+              <img
+                src="assets/result-vg.png"
+                alt="Qualitative 3D visual grounding example."
+              >
+              <img
+                src="assets/result-sqa.png"
+                alt="Qualitative situated understanding example."
+              >
+              <img
+                src="assets/result-scanqa.png"
+                alt="Qualitative visual question answering example."
+              >
+            </div>
+            <figcaption>
+              <strong>Qualitative Results.</strong> The examples show spatial grounding
+              among repeated objects, egocentric situation understanding, and scene-layout
+              question answering.
+            </figcaption>
+          </figure>
+        </div>
+      </section>
+
+      <section id="bibtex" class="section section-alt">
+        <div class="content content-reading">
+          <div class="section-kicker">Citation</div>
+          <h2>BibTeX</h2>
+          <div class="citation-card">
+            <button class="copy-button" type="button" data-copy-target="bibtex-code">
+              Copy
+            </button>
+            <pre><code id="bibtex-code">@inproceedings{wang2026agentic,
+  title={Agentic Collaborative Cognition for Zero-Shot 3D Understanding},
+  author={Wang, Wenxin and Zhang, Bo and Chen, Feng and Wang, Zixuan and Li, Wen and Li, Changsheng and Lei, Yinjie},
+  booktitle={European Conference on Computer Vision},
+  year={2026}
+}</code></pre>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container">
+        <p>Agentic Collaborative Cognition for Zero-Shot 3D Understanding</p>
+      </div>
+    </footer>
+    <script>
+      const copyButton = document.querySelector("[data-copy-target]");
+
+      if (copyButton) {
+        copyButton.addEventListener("click", async () => {
+          const target = document.getElementById(copyButton.dataset.copyTarget);
+          const text = target ? target.textContent.trim() : "";
+
+          try {
+            await navigator.clipboard.writeText(text);
+            copyButton.textContent = "Copied";
+            window.setTimeout(() => {
+              copyButton.textContent = "Copy";
+            }, 1600);
+          } catch {
+            copyButton.textContent = "Copy failed";
+            window.setTimeout(() => {
+              copyButton.textContent = "Copy";
+            }, 1600);
+          }
+        });
+      }
+    </script>
+  </body>
+</html>
