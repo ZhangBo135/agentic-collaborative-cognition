@@ -28,16 +28,12 @@ for the branch that contains `index.html`.
 In `index.html`, update these resource links after release:
 
 - `arXiv`
-- `Supplementary`
 - `Code`
-
-The `Paper` button currently points to `assets/paper.pdf`.
 
 ## Files
 
 - `index.html` - static project page
 - `styles.css` - page styling
-- `assets/paper.pdf` - local copy of the paper
 - `assets/teaser.png` - teaser figure
 - `assets/method-overview.png` - method overview figure
 - `assets/result-vg.png` - 3D visual grounding qualitative result
