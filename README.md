@@ -27,7 +27,6 @@ for the branch that contains `index.html`.
 
 In `index.html`, update these resource links after release:
 
-- `arXiv`
 - `Code`
 
 ## Files
